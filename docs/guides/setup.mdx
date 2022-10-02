@@ -11,11 +11,23 @@ sidebar_position: 2
 Bei evcc gibt es einen [Community Support](https://github.com/evcc-io/evcc/discussions). Hier helfen sowohl Entwickler als auch Anwender bei verschiedenen Problemen. Es wäre gut dabei möglichst genaue Informationen zu folgenden Bereichen mitzuteilen:
 
 - Welche Geräte (Fahrzeug, Hausinstallation, Wallbox) werden verwendet.
+
 - Die Konfigurationsdatei `evcc.yaml`,  
-  d.h. deren Inhalt (*bitte Benutzernamen, Passwörter und ähnliches entfernen*).
+    <details>
+      <summary>d.h. deren Inhalt (*bitte Benutzernamen, Passwörter und ähnliches entfernen*).</summary>
+ 
+  `egrep -v '^#|^\s+#' evcc.yaml |grep . |sed -E 's/(password|user|token|url|host|broker).*/\1: *****/'`
+    </details>
+
 - Eine möglichst genaue Beschreibung was das Problem ist.
 
+**Erste Hilfe**
+
+Zur Erleichterung wurde eine Erste-Hilfe Funktionalität entwickelt. Durch Eingabe von `evcc discuss` auf der Kommandozeile wird ein neuer Diskussionsbeitrag in der Rubrik "Erste Hilfe" erstellt. Dieser Beitrag beinhaltet automatisch die Fehlermeldung(en) und die anonymisierte Konfigurationsdatei. Ergänzt werden muss nur noch ein aussagekräftiger Titel und eine Problembeschreibung. 
+Diese Erste-Hilfe ist jeweils nur für die Erst-Erstellung eines Diskussionsbeitrages nutzbar. Sind im Zuge der Lösungsfindung weitere Informationen notwendig, müssen diese händisch erstellt werden.
+
 Wir versuchen natürlich Probleme so gut es geht zu vermeiden, aber das kann aufgrund der Komplexität leider nicht immer gelingen.
+
 
 ### Wie kann ich ein Logfile zur Fehleranalyse erstellen?
 
@@ -70,6 +82,11 @@ Typische Gründe sind:
 -	Das Zielgerät ist überlastet oder ausgefallen
 -	Bestimmte Funktionen des Geräts sind nicht wie von evcc erwartet verfügbar (z. B. durch veraltete Firmware oder abweichende Konfigurationseinstellungen)
 -	Zu kurze Timeout- oder Abfragezykluszeiten seitens evcc
+
+
+### Fehler: remove /tmp/evcc: operation not permitted
+
+Diese Fehlermeldung erscheint, wenn z B. evcc bereits als Dienst läuft und evcc zusätzlich ein weiteres mal auf der Kommandozeile (durch Eingabe `evcc`) gestartet wird, ggf. auch noch mit unterschiedlichen Benutzerberechtigungen. Das darf immer nur eine einzige Instanz von evcc zur gleichen Zeit laufen.
 
 
 ### Ersparnisberechnung

@@ -617,6 +617,49 @@ meters:
 
 ## Fronius
 
+### Primo GEN24 Plus 
+
+<Tabs>
+<TabItem value="grid" label="Netz" default>
+
+```yaml
+meters:
+  - name: my_grid
+    type: template
+    template: fronius-gen24
+    usage: grid
+    host: 192.0.2.2 # IP-Adresse oder Hostname
+    port: 502 # Port # Optional 
+```
+</TabItem>
+<TabItem value="pv" label="PV">
+
+```yaml
+meters:
+  - name: my_pv
+    type: template
+    template: fronius-gen24
+    usage: pv
+    host: 192.0.2.2 # IP-Adresse oder Hostname
+    port: 502 # Port # Optional 
+```
+</TabItem>
+<TabItem value="battery" label="Batterie">
+
+```yaml
+meters:
+  - name: my_battery
+    type: template
+    template: fronius-gen24
+    usage: battery
+    host: 192.0.2.2 # IP-Adresse oder Hostname
+    port: 502 # Port # Optional 
+```
+</TabItem>
+</Tabs>
+
+<!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
+
 ### Solar API V1 
 
 <Tabs>
@@ -1288,6 +1331,9 @@ meters:
 
 ## Powerfox Poweropti
 
+<Tabs>
+<TabItem value="grid" label="Netz" default>
+
 ```yaml
 meters:
   - name: my_grid
@@ -1297,6 +1343,114 @@ meters:
     user: # Benutzerkonto (bspw. E-Mail Adresse, User Id, etc.)
     password: # Passwort des Benutzerkontos (bei führenden Nullen bitte in einfache Hochkommata setzen) 
 ```
+</TabItem>
+<TabItem value="pv" label="PV">
+
+```yaml
+meters:
+  - name: my_pv
+    type: template
+    template: powerfox-poweropti
+    usage: pv
+    user: # Benutzerkonto (bspw. E-Mail Adresse, User Id, etc.)
+    password: # Passwort des Benutzerkontos (bei führenden Nullen bitte in einfache Hochkommata setzen) 
+```
+</TabItem>
+</Tabs>
+
+<!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
+
+## Qcells Q.HOME ESS HYB-G3
+
+<Tabs>
+<TabItem value="grid" label="Netz" default>
+
+```yaml
+meters:
+  - name: my_grid
+    type: template
+    template: solax
+    usage: grid      
+    
+    # RS485 via adapter (Modbus RTU)
+    modbus: rs485serial
+    id: 1
+    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
+    baudrate: 19200 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
+    comset: "8N1" # Kommunikationsparameter für den Adapter
+    
+    # RS485 via TCP/IP (Modbus RTU)
+    modbus: rs485tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port
+    
+    # Modbus TCP
+    modbus: tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port 
+```
+</TabItem>
+<TabItem value="pv" label="PV">
+
+```yaml
+meters:
+  - name: my_pv
+    type: template
+    template: solax
+    usage: pv      
+    
+    # RS485 via adapter (Modbus RTU)
+    modbus: rs485serial
+    id: 1
+    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
+    baudrate: 19200 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
+    comset: "8N1" # Kommunikationsparameter für den Adapter
+    
+    # RS485 via TCP/IP (Modbus RTU)
+    modbus: rs485tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port
+    
+    # Modbus TCP
+    modbus: tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port 
+```
+</TabItem>
+<TabItem value="battery" label="Batterie">
+
+```yaml
+meters:
+  - name: my_battery
+    type: template
+    template: solax
+    usage: battery      
+    
+    # RS485 via adapter (Modbus RTU)
+    modbus: rs485serial
+    id: 1
+    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
+    baudrate: 19200 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
+    comset: "8N1" # Kommunikationsparameter für den Adapter
+    
+    # RS485 via TCP/IP (Modbus RTU)
+    modbus: rs485tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port
+    
+    # Modbus TCP
+    modbus: tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port 
+```
+</TabItem>
+</Tabs>
 
 <!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
 
@@ -1922,7 +2076,7 @@ meters:
 
 ## Solarwatt
 
-### MyReserve 
+### EnergyManager, EnergyManager Pro 
 
 <Tabs>
 <TabItem value="grid" label="Netz" default>
@@ -1931,7 +2085,7 @@ meters:
 meters:
   - name: my_grid
     type: template
-    template: solarwatt-myreserve
+    template: solarwatt
     usage: grid
     host: 192.0.2.2 # IP-Adresse oder Hostname 
 ```
@@ -1942,7 +2096,7 @@ meters:
 meters:
   - name: my_pv
     type: template
-    template: solarwatt-myreserve
+    template: solarwatt
     usage: pv
     host: 192.0.2.2 # IP-Adresse oder Hostname 
 ```
@@ -1953,7 +2107,47 @@ meters:
 meters:
   - name: my_battery
     type: template
-    template: solarwatt-myreserve
+    template: solarwatt
+    usage: battery
+    host: 192.0.2.2 # IP-Adresse oder Hostname 
+```
+</TabItem>
+</Tabs>
+
+<!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
+
+### MyReserve 
+
+<Tabs>
+<TabItem value="grid" label="Netz" default>
+
+```yaml
+meters:
+  - name: my_grid
+    type: template
+    template: solarwatt
+    usage: grid
+    host: 192.0.2.2 # IP-Adresse oder Hostname 
+```
+</TabItem>
+<TabItem value="pv" label="PV">
+
+```yaml
+meters:
+  - name: my_pv
+    type: template
+    template: solarwatt
+    usage: pv
+    host: 192.0.2.2 # IP-Adresse oder Hostname 
+```
+</TabItem>
+<TabItem value="battery" label="Batterie">
+
+```yaml
+meters:
+  - name: my_battery
+    type: template
+    template: solarwatt
     usage: battery
     host: 192.0.2.2 # IP-Adresse oder Hostname 
 ```
@@ -2007,57 +2201,8 @@ meters:
 
 ## Solax
 
-### Hybrid 
-
-Der Solax Inverter muss in der SolaxCloud angemeldet sein.
-
-**Achtung**: Die Werte können nur alle 150s abgerufen werden und dann auch 5 Minuten alt sein. Die Laderegelung nach PV kann hiermit nicht optimal gesteuert werden!
-
-<Tabs>
-<TabItem value="grid" label="Netz" default>
-
-```yaml
-meters:
-  - name: my_grid
-    type: template
-    template: solax-hybrid-cloud
-    usage: grid
-    tokenid: # Auf https://www.solaxcloud.com/#/api den Wert von "ObtaintokenID" hier eintragen.
-    serial: # Auf https://www.solaxcloud.com/#/inverter die Registriernummer hier eintragen. 
-```
-</TabItem>
-<TabItem value="pv" label="PV">
-
-```yaml
-meters:
-  - name: my_pv
-    type: template
-    template: solax-hybrid-cloud
-    usage: pv
-    tokenid: # Auf https://www.solaxcloud.com/#/api den Wert von "ObtaintokenID" hier eintragen.
-    serial: # Auf https://www.solaxcloud.com/#/inverter die Registriernummer hier eintragen. 
-```
-</TabItem>
-<TabItem value="battery" label="Batterie">
-
-```yaml
-meters:
-  - name: my_battery
-    type: template
-    template: solax-hybrid-cloud
-    usage: battery
-    tokenid: # Auf https://www.solaxcloud.com/#/api den Wert von "ObtaintokenID" hier eintragen.
-    serial: # Auf https://www.solaxcloud.com/#/inverter die Registriernummer hier eintragen. 
-```
-</TabItem>
-</Tabs>
-
-<!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
-
 ### Hybrid X1/X3 G3/G4 
 
-Der Solax Hybrid Inverter muss via Ethernet an das lokale Netzwerk angeschlossen sein.
-
 <Tabs>
 <TabItem value="grid" label="Netz" default>
 
@@ -2066,8 +2211,25 @@ meters:
   - name: my_grid
     type: template
     template: solax
-    usage: grid
-    host: 192.0.2.2 # IP-Adresse oder Hostname
+    usage: grid      
+    
+    # RS485 via adapter (Modbus RTU)
+    modbus: rs485serial
+    id: 1
+    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
+    baudrate: 19200 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
+    comset: "8N1" # Kommunikationsparameter für den Adapter
+    
+    # RS485 via TCP/IP (Modbus RTU)
+    modbus: rs485tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port
+    
+    # Modbus TCP
+    modbus: tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
     port: 502 # Port 
 ```
 </TabItem>
@@ -2078,8 +2240,25 @@ meters:
   - name: my_pv
     type: template
     template: solax
-    usage: pv
-    host: 192.0.2.2 # IP-Adresse oder Hostname
+    usage: pv      
+    
+    # RS485 via adapter (Modbus RTU)
+    modbus: rs485serial
+    id: 1
+    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
+    baudrate: 19200 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
+    comset: "8N1" # Kommunikationsparameter für den Adapter
+    
+    # RS485 via TCP/IP (Modbus RTU)
+    modbus: rs485tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port
+    
+    # Modbus TCP
+    modbus: tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
     port: 502 # Port 
 ```
 </TabItem>
@@ -2090,8 +2269,25 @@ meters:
   - name: my_battery
     type: template
     template: solax
-    usage: battery
-    host: 192.0.2.2 # IP-Adresse oder Hostname
+    usage: battery      
+    
+    # RS485 via adapter (Modbus RTU)
+    modbus: rs485serial
+    id: 1
+    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
+    baudrate: 19200 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
+    comset: "8N1" # Kommunikationsparameter für den Adapter
+    
+    # RS485 via TCP/IP (Modbus RTU)
+    modbus: rs485tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port
+    
+    # Modbus TCP
+    modbus: tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
     port: 502 # Port 
 ```
 </TabItem>
@@ -2099,11 +2295,58 @@ meters:
 
 <!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
 
-### Wechselrichter 
+### Hybrid-Wechselrichter (Cloud) 
 
-Der Solax Inverter muss in der SolaxCloud angemeldet sein.
+Der Solax Hybrid-Wechselrichter muss in der SolaxCloud angemeldet sein.
 
-**Achtung**: Die Werte können nur alle 150s abgerufen werden und dann auch 5 Minuten alt sein. Die Laderegelung nach PV kann hiermit nicht optimal gesteuert werden!
+**Achtung**: Die Werte können nur alle 150s abgerufen werden und dann auch 5 Minuten alt sein. Die Laderegelung nach PV kann hiermit nicht optimal gesteuert werden! Nur als Notfalloption nutzen wenn kein lokaler Zugriff möglich ist.
+
+<Tabs>
+<TabItem value="grid" label="Netz" default>
+
+```yaml
+meters:
+  - name: my_grid
+    type: template
+    template: solax-hybrid-cloud
+    usage: grid
+    tokenid: # Auf https://www.solaxcloud.com/#/api den Wert von "ObtaintokenID" hier eintragen.
+    serial: # Auf https://www.solaxcloud.com/#/inverter die Registriernummer hier eintragen. 
+```
+</TabItem>
+<TabItem value="pv" label="PV">
+
+```yaml
+meters:
+  - name: my_pv
+    type: template
+    template: solax-hybrid-cloud
+    usage: pv
+    tokenid: # Auf https://www.solaxcloud.com/#/api den Wert von "ObtaintokenID" hier eintragen.
+    serial: # Auf https://www.solaxcloud.com/#/inverter die Registriernummer hier eintragen. 
+```
+</TabItem>
+<TabItem value="battery" label="Batterie">
+
+```yaml
+meters:
+  - name: my_battery
+    type: template
+    template: solax-hybrid-cloud
+    usage: battery
+    tokenid: # Auf https://www.solaxcloud.com/#/api den Wert von "ObtaintokenID" hier eintragen.
+    serial: # Auf https://www.solaxcloud.com/#/inverter die Registriernummer hier eintragen. 
+```
+</TabItem>
+</Tabs>
+
+<!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
+
+### PV-Wechselrichter (Cloud) 
+
+Der Solax PV-Wechselrichter muss in der SolaxCloud angemeldet sein.
+
+**Achtung**: Die Werte können nur alle 150s abgerufen werden und dann auch 5 Minuten alt sein. Die Laderegelung nach PV kann hiermit nicht optimal gesteuert werden! Nur als Notfalloption nutzen wenn kein lokaler Zugriff möglich ist.
 
 ```yaml
 meters:
@@ -2117,7 +2360,7 @@ meters:
 
 <!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
 
-## Sonnenbatterie Eco/10
+## Sonnen sonnenBatterie
 
 <Tabs>
 <TabItem value="grid" label="Netz" default>
@@ -2126,7 +2369,7 @@ meters:
 meters:
   - name: my_grid
     type: template
-    template: sonnenbatterie-eco10
+    template: sonnenbatterie
     usage: grid
     host: 192.0.2.2 # IP-Adresse oder Hostname
     port: 8080 # Port # Optional 
@@ -2138,7 +2381,7 @@ meters:
 meters:
   - name: my_pv
     type: template
-    template: sonnenbatterie-eco10
+    template: sonnenbatterie
     usage: pv
     host: 192.0.2.2 # IP-Adresse oder Hostname
     port: 8080 # Port # Optional 
@@ -2150,7 +2393,7 @@ meters:
 meters:
   - name: my_battery
     type: template
-    template: sonnenbatterie-eco10
+    template: sonnenbatterie
     usage: battery
     host: 192.0.2.2 # IP-Adresse oder Hostname
     port: 8080 # Port # Optional 
@@ -2162,7 +2405,74 @@ meters:
 
 ## Sungrow
 
-### Hybrid Inverter 
+### SG Series Inverter 
+
+Die Verbindung ist nur seriell (RS485) oder TCP (mit dem WiNet-S-Dongle) möglich.
+
+<Tabs>
+<TabItem value="grid" label="Netz" default>
+
+```yaml
+meters:
+  - name: my_grid
+    type: template
+    template: sungrow-inverter
+    usage: grid      
+    
+    # RS485 via adapter (Modbus RTU)
+    modbus: rs485serial
+    id: 1
+    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
+    baudrate: 9600 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
+    comset: "8N1" # Kommunikationsparameter für den Adapter
+    
+    # RS485 via TCP/IP (Modbus RTU)
+    modbus: rs485tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port
+    
+    # Modbus TCP
+    modbus: tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port 
+```
+</TabItem>
+<TabItem value="pv" label="PV">
+
+```yaml
+meters:
+  - name: my_pv
+    type: template
+    template: sungrow-inverter
+    usage: pv      
+    
+    # RS485 via adapter (Modbus RTU)
+    modbus: rs485serial
+    id: 1
+    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
+    baudrate: 9600 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
+    comset: "8N1" # Kommunikationsparameter für den Adapter
+    
+    # RS485 via TCP/IP (Modbus RTU)
+    modbus: rs485tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port
+    
+    # Modbus TCP
+    modbus: tcpip
+    id: 1
+    host: 192.0.2.2 # Hostname
+    port: 502 # Port 
+```
+</TabItem>
+</Tabs>
+
+<!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
+
+### SH Series Hybrid Inverter 
 
 Die Verbindung ist nur seriell (RS485) oder TCP (mit dem WiNet-S-Dongle) möglich.
 
@@ -2233,73 +2543,6 @@ meters:
     type: template
     template: sungrow-hybrid
     usage: battery      
-    
-    # RS485 via adapter (Modbus RTU)
-    modbus: rs485serial
-    id: 1
-    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
-    baudrate: 9600 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
-    comset: "8N1" # Kommunikationsparameter für den Adapter
-    
-    # RS485 via TCP/IP (Modbus RTU)
-    modbus: rs485tcpip
-    id: 1
-    host: 192.0.2.2 # Hostname
-    port: 502 # Port
-    
-    # Modbus TCP
-    modbus: tcpip
-    id: 1
-    host: 192.0.2.2 # Hostname
-    port: 502 # Port 
-```
-</TabItem>
-</Tabs>
-
-<!-- AUTO-GENERATED FROM TEMPLATE - PLEASE EDIT HERE https://github.com/evcc-io/evcc/tree/master/templates/definition/meter  -->
-
-### Inverter 
-
-Die Verbindung ist nur seriell (RS485) oder TCP (mit dem WiNet-S-Dongle) möglich.
-
-<Tabs>
-<TabItem value="grid" label="Netz" default>
-
-```yaml
-meters:
-  - name: my_grid
-    type: template
-    template: sungrow-inverter
-    usage: grid      
-    
-    # RS485 via adapter (Modbus RTU)
-    modbus: rs485serial
-    id: 1
-    device: /dev/ttyUSB0 # USB-RS485 Adapter Adresse
-    baudrate: 9600 # Prüfe die Geräteeinstellungen, typische Werte sind 9600, 19200, 38400, 57600, 115200
-    comset: "8N1" # Kommunikationsparameter für den Adapter
-    
-    # RS485 via TCP/IP (Modbus RTU)
-    modbus: rs485tcpip
-    id: 1
-    host: 192.0.2.2 # Hostname
-    port: 502 # Port
-    
-    # Modbus TCP
-    modbus: tcpip
-    id: 1
-    host: 192.0.2.2 # Hostname
-    port: 502 # Port 
-```
-</TabItem>
-<TabItem value="pv" label="PV">
-
-```yaml
-meters:
-  - name: my_pv
-    type: template
-    template: sungrow-inverter
-    usage: pv      
     
     # RS485 via adapter (Modbus RTU)
     modbus: rs485serial
@@ -2750,7 +2993,7 @@ meters:
     template: homematic
     usage: grid
     host: 192.0.2.2 # IP-Adresse oder Hostname
-    device: 0001EE89AAD848 # Homematic Geräte Id, wie im CCU Webfrontend angezeigt.
+    device: '0001EE89AAD848' # Homematic Geräte Id, wie im CCU Webfrontend angezeigt.
     user: # Benutzerkonto (bspw. E-Mail Adresse, User Id, etc.) # Optional
     password: # Passwort des Benutzerkontos (bei führenden Nullen bitte in einfache Hochkommata setzen) # Optional 
 ```
@@ -2764,7 +3007,7 @@ meters:
     template: homematic
     usage: pv
     host: 192.0.2.2 # IP-Adresse oder Hostname
-    device: 0001EE89AAD848 # Homematic Geräte Id, wie im CCU Webfrontend angezeigt.
+    device: '0001EE89AAD848' # Homematic Geräte Id, wie im CCU Webfrontend angezeigt.
     user: # Benutzerkonto (bspw. E-Mail Adresse, User Id, etc.) # Optional
     password: # Passwort des Benutzerkontos (bei führenden Nullen bitte in einfache Hochkommata setzen) # Optional 
 ```
@@ -2778,7 +3021,7 @@ meters:
     template: homematic
     usage: charge
     host: 192.0.2.2 # IP-Adresse oder Hostname
-    device: 0001EE89AAD848 # Homematic Geräte Id, wie im CCU Webfrontend angezeigt.
+    device: '0001EE89AAD848' # Homematic Geräte Id, wie im CCU Webfrontend angezeigt.
     user: # Benutzerkonto (bspw. E-Mail Adresse, User Id, etc.) # Optional
     password: # Passwort des Benutzerkontos (bei führenden Nullen bitte in einfache Hochkommata setzen) # Optional 
 ```
